@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,35 +18,110 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+    
+    <style>
+        /* Custom styles to eliminate scrolling */
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        #wrapper {
+            height: 100%;
+        }
+        
+        #content-wrapper {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #content {
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .container-fluid {
+            height: calc(100% - 30px);
+            display: flex;
+            flex-direction: column;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        
+        .dashboard-container {
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .dashboard-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Keep original sidebar styling */
+        .sidebar {
+            position: relative;
+        }
+        
+        .custom-sidebar-brand {
+            padding: 1rem;
+        }
+        
+        .sidebar-brand-icon img {
+            width: 90px;
+            height: 65px;
+        }
+        
+        .sidebar-brand-text {
+            font-size: 8px !important;
+        }
+        
+        /* Position FlowMetrix credit at bottom of sidebar */
+        .sidebar-flowmetrix-credit {
+            background-color: white;
+            color: black;
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+        
+        footer.sticky-footer {
+            padding: 0.5rem 0;
+            position: relative;
+        }
+    </style>
 </head>
 
 <body id="page-top">
-
     <!-- Page Wrapper -->
     <div id="wrapper">
-
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
             <a class="sidebar-brand d-flex align-items-center justify-content-start custom-sidebar-brand" href="index.html">
                 <div class="sidebar-brand-icon">
                     <img src="img/image.jpeg" alt="Brand Logo" style="width: 90px; height: 65px;">
                 </div>
-                <div class="sidebar-brand-text mx-3" style="font-size: 30px;">PAGA<sup></sup> </div>
+                <div class="sidebar-brand-text mx-4" style="font-size: 8px;">Plataforma de Administración y Gestión de Activos<sup></sup></div>
             </a>
-
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
             <!-- Divider -->
             <hr class="sidebar-divider">
+            
             <!-- Heading -->
             <div class="sidebar-heading">
                 Comunicación Pública
             </div>
+            
             <!-- Nav Item - Dashboard -->
-
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -89,7 +163,6 @@
                     <span>Sayco</span></a>
             </li>
 
-            
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -102,54 +175,60 @@
                 <a class="nav-link" href="sincronizaciones.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Regalías e Inventario</span></a>
+            </li>
 
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Logs
+            </div>
+            
+            <li class="nav-item active">
+                <a class="nav-link" href="logs.html">
+                    <span>CloudWatch Logs</span></a>
+            </li>
+                
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="container" style="position: relative; height: 500px; border: 1px ;">
-                <div class="text-center d-none d-md-inline" style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%);">
-                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
-                </div>
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
             
-
+            <!-- FlowMetrix Credit at bottom of sidebar with hyperlink -->
+            <div class="sidebar-flowmetrix-credit text-center mt-4 mb-2">
+                Desarrollado por <a href="https://www.flowmetrix.co/" target="_blank" style="color: #4B652D; font-weight: bold; text-decoration: none;">Flowmetrix</a>
+            </div>
         </ul>
         <!-- End of Sidebar -->
 
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
             <!-- Main Content -->
             <div id="content">
-
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-            
-                <!-- Page Heading -->
-        
-                <h1 class="h3 mb-0 text-gray-800 custom-heading" style="margin-top: 20px; font-weight: bold; text-align: center; display: flex; justify-content: space-between; align-items: center;">
-                    <span style="flex-grow: 1; text-align: center;">Regalías Acinpro</span>
-                    <a href="https://d-9067daf682.awsapps.com/start/" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                        <i class="fas fa-download fa-sm text-white-50"></i> Login QuickSight
-                    </a>
-                </h1>  
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-0 text-gray-800 custom-heading" style="margin-top: 20px; font-weight: bold; text-align: center; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="flex-grow: 1; text-align: center;">Regalías Acinpro</span>
+                        <a href="https://d-9067daf682.awsapps.com/start/" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                             Login AWS
+                        </a>
+                    </h1>  
 
                     <!-- Content Row -->
-
-                    <div class="row" style="height: 100vh;">
-                        <div class="col-12 p-0">
-                            <iframe 
-                                src="https://us-east-2.quicksight.aws.amazon.com/sn/embed/share/accounts/487431355307/dashboards/0ad139b9-1c83-43a9-9279-dbb6cce7e0a4?directory_alias=LaMusicaFM"
-                                style="width: 100%; height: 100vh; border: none;">
-                            </iframe>
-                        </div>
+                    <div class="dashboard-container">
+                        <iframe 
+                            class="dashboard-iframe"
+                            src="https://us-east-2.quicksight.aws.amazon.com/sn/embed/share/accounts/487431355307/dashboards/0ad139b9-1c83-43a9-9279-dbb6cce7e0a4?directory_alias=LaMusicaFM">
+                        </iframe>
                     </div>
-                    
-
+                </div>
                 <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
 
@@ -157,15 +236,13 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; LaMusica.FM 2025</span>
+                        <span style="font-size: 12px;">Copyright &copy; LaMusica.FM 2025</span>
                     </div>
                 </div>
             </footer>
             <!-- End of Footer -->
-
         </div>
         <!-- End of Content Wrapper -->
-
     </div>
     <!-- End of Page Wrapper -->
 
@@ -186,8 +263,5 @@
 
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>
-
-
 </body>
-
 </html>
