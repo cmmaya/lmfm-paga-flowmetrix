@@ -285,7 +285,7 @@
                         row.innerHTML = `
                             <td class="timestamp">${date}</td>
                             <td class="${logLevel.toLowerCase()}">${logLevel}</td>
-                            <td>${log.message}</td>
+                            <td>${log.message.replace(/\n/g, "<br>")}</td>
                         `;
 
                         tableBody.appendChild(row);
